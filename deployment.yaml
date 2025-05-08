@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retroreel-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retroreel
+  template:
+    metadata:
+      labels:
+        app: retroreel
+    spec:
+      containers:
+        - name: retroreel
+          image: retroreel-streaming:latest   # Imagen actualizada
+          ports:
+            - containerPort: 80
